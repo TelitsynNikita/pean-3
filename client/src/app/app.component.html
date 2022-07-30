@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="horizontal-wrapper">
+    <img routerLink="/" src="./assets/img/logo.svg" alt="logo">
+    <a routerLink="/catalog" class="header__link" routerLinkActive="active-link">Catalog</a>
+    <a routerLink="/about" class="header__link" routerLinkActive="active-link">About us</a>
+  </div>
+  <div class="horizontal-wrapper">
+    <button *ngIf="!isLoggedIn" class="sign-in__button">Sign In</button>
+    <button *ngIf="isLoggedIn" class="logout__button">LogOut</button>
+    <a class="basket bi bi-basket-fill"></a>
+  </div>
+</header>
+
+<main class="main">
+  <router-outlet></router-outlet>
+</main>
