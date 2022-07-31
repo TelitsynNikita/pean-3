@@ -1,7 +1,8 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, Output, AfterViewInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AuthService} from "../../services/auth.service";
 import jwtDecode from "jwt-decode";
+import {UserService} from "../../services/user.service";
 
 interface IForm {
   value: {
@@ -15,7 +16,7 @@ interface IForm {
   templateUrl: './sign-in-modal.component.html',
   styleUrls: ['./sign-in-modal.component.scss']
 })
-export class SignInModalComponent {
+export class SignInModalComponent implements AfterViewInit {
   form: FormGroup
   isRegister = true
   @Input() modal = false
@@ -23,7 +24,8 @@ export class SignInModalComponent {
 
   constructor(
     private builder: FormBuilder,
-    private auth: AuthService
+    private auth: AuthService,
+    public user: UserService
   ) {
     this.form = builder.group({
       'email': ['', [Validators.email, Validators.required]],
@@ -31,8 +33,12 @@ export class SignInModalComponent {
     })
   }
 
+  ngAfterViewInit() {
+    this.user.isUser.subscribe(value => value)
+  }
+
   onSignIn(form: IForm) {
-    this.auth.onSignIn(form.value).subscribe((value: any) => console.log(jwtDecode(value.token)))
+    this.auth.onSignIn(form.value).subscribe((value: any) => this.user.changeUser(jwtDecode(value.token)))
     this.closeModal()
   }
 

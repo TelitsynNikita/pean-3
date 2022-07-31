@@ -1,0 +1,18 @@
+.header {
+  padding: 10px 0 10px 20px;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background-color: #797979;
+
+  a {
+    color: #fff;
+    font-weight: 700;
+  }
+
+  .active {
+    color: var(--link-color);
+  }
+}
+
+

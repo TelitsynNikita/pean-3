@@ -10,6 +10,10 @@ import { BasketComponent } from './components/basket/basket.component';
 import { SignInModalComponent } from './components/sign-in-modal/sign-in-modal.component';
 import { SecondaryTitleComponent } from './components/secondary-title/secondary-title.component';
 import {AuthService} from "./services/auth.service";
+import {UserService} from "./services/user.service";
+import {AuthGuard} from "./guards/auth.guard";
+import {TypeComponent} from "./components/type/type.component";
+import {BrandComponent} from "./components/brand/brand.component";
 
 @NgModule({
   declarations: [
@@ -17,7 +21,9 @@ import {AuthService} from "./services/auth.service";
     HomeComponent,
     BasketComponent,
     SignInModalComponent,
-    SecondaryTitleComponent
+    SecondaryTitleComponent,
+    TypeComponent,
+    BrandComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +32,9 @@ import {AuthService} from "./services/auth.service";
     HttpClientModule
   ],
   providers: [
-    AuthService
+    AuthService,
+    UserService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
