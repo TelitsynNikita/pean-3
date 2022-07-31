@@ -14,6 +14,9 @@ import {UserService} from "./services/user.service";
 import {AuthGuard} from "./guards/auth.guard";
 import {TypeComponent} from "./components/type/type.component";
 import {BrandComponent} from "./components/brand/brand.component";
+import {TypeService} from "./services/type.service";
+import {BrandService} from "./services/brand.service";
+import {DeviceService} from "./services/device.service";
 
 @NgModule({
   declarations: [
@@ -29,11 +32,14 @@ import {BrandComponent} from "./components/brand/brand.component";
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     AuthService,
     UserService,
+    TypeService,
+    BrandService,
+    DeviceService,
     AuthGuard
   ],
   bootstrap: [AppComponent]

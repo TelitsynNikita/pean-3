@@ -1,7 +1,33 @@
-<form [formGroup]="form">
-  <select></select>
-  <select></select>
-  <input type="text" formControlName="name">
-  <input type="number" formControlName="price">
-  <input type="file" formControlName="img">
+<form [formGroup]="form" (submit)="createDevice(form)">
+  <app-secondary-title [title]="'Create device'" class="title"></app-secondary-title>
+
+  <div class="form-group">
+    <select name="type" formControlName="typeId">
+      <option disabled>Выберите тип</option>
+      <option *ngFor="let type of types" [value]="type.id">{{type.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <select name="brand" formControlName="brandId">
+      <option disabled>Выберите бренд</option>
+      <option *ngFor="let brand of brands" [value]="brand.id">{{brand.name}}</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <input type="text" formControlName="name" placeholder="name">
+  </div>
+
+  <div class="form-group">
+    <input type="number" formControlName="price" placeholder="price">
+  </div>
+
+  <div class="form-group">
+    <input type="file" formControlName="img" placeholder="img">
+  </div>
+
+
+
+  <button>Create</button>
 </form>

@@ -1,0 +1,38 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+form {
+  width: 35vw;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  .title {
+    color: var(--logout-button-color);
+  }
+
+  .form-group {
+    width: 100%;
+
+    select,
+    input {
+      width: 100%;
+      background-color: #444;
+    }
+  }
+
+  button {
+    background-color: var(--logout-button-color);
+    width: 10vw;
+    margin: 0 auto;
+    padding: 10px 20px;
+
+    &:disabled {
+      background-color: #606060;
+    }
+  }
+}
