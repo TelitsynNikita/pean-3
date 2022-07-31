@@ -5,12 +5,14 @@
     <a routerLink="/about" class="header__link" routerLinkActive="active-link">About us</a>
   </div>
   <div class="horizontal-wrapper">
-    <button *ngIf="!isLoggedIn" class="sign-in__button">Sign In</button>
+    <button *ngIf="!isLoggedIn" class="sign-in__button" (click)="showModal()">Sign In</button>
     <button *ngIf="isLoggedIn" class="logout__button">LogOut</button>
-    <a class="basket bi bi-basket-fill"></a>
+    <a routerLink="/basket" class="basket bi bi-basket-fill"></a>
   </div>
 </header>
 
 <main class="main">
   <router-outlet></router-outlet>
 </main>
+
+<app-sign-in-modal *ngIf="isModal" (change)="onChangeModal($event)" [modal]="isModal"></app-sign-in-modal>

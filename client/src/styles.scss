@@ -5,6 +5,7 @@
   --logout-button-color: #794058;
   --sign-in-button-color: #1e7223;
   --basket-color: #552294;
+  --form-text-color: #21a892;
 }
 
 * {
@@ -43,4 +44,16 @@ input {
   border: none;
   border-radius: 10px;
   outline: none;
+  padding: 10px 0 10px 20px;
+  font-size: 16px;
+  color: #fff;
+
+  &::placeholder {
+    color: #888;
+  }
+}
+
+.invalid {
+  font-size: 11px;
+  color: red;
 }

@@ -7,4 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isLoggedIn: boolean = false
+  isModal: boolean = false
+
+  onChangeModal(event: any) {
+    this.isModal = event
+  }
+
+  showModal() {
+    this.isModal = true
+  }
 }
