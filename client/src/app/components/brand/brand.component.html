@@ -1,1 +1,11 @@
-<p>brand works!</p>
+<form [formGroup]="brandForm" (submit)="createBrand(brandForm)">
+  <app-secondary-title [title]="'Create brand'" class="title"></app-secondary-title>
+
+  <div class="form-group">
+    <input type="text" formControlName="name" placeholder="name">
+    <span class="invalid" *ngIf="brandForm.controls['name'].invalid && brandForm.controls['name'].touched && !isBrand">Не валидно</span>
+    <span *ngIf="isBrand" class="invalid">{{isBrand}}</span>
+  </div>
+
+  <button>Create</button>
+</form>

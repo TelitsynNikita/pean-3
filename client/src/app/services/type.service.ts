@@ -1,17 +1,22 @@
 import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable()
 export class TypeService {
   _typedApi = 'http://localhost:5200/api/type'
+  responseMessage = new BehaviorSubject('')
 
-  constructor(private type: HttpClient) { }
+  constructor(private http: HttpClient) { }
 
   createType(type: any) {
-    this.type.post(this._typedApi, type).subscribe()
+    this.http.post(this._typedApi, type).subscribe(
+      (res: any) => this.responseMessage.next(''),
+      (err: any) => this.responseMessage.next(err.error.message)
+    )
   }
 
   getAllBrands() {
-    return this.type.get(this._typedApi)
+    return this.http.get(this._typedApi)
   }
 }

@@ -16,25 +16,19 @@ interface IForm {
   templateUrl: './sign-in-modal.component.html',
   styleUrls: ['./sign-in-modal.component.scss']
 })
-export class SignInModalComponent implements AfterViewInit {
+export class SignInModalComponent {
   form: FormGroup
   isRegister = true
   @Input() modal = false
   @Output() change = new EventEmitter<boolean>()
 
-  constructor(
-    private builder: FormBuilder,
-    private auth: AuthService,
-    public user: UserService
-  ) {
+  constructor(private builder: FormBuilder, private auth: AuthService, public user: UserService) {
+
     this.form = builder.group({
       'email': ['', [Validators.email, Validators.required]],
       'password': ['', [Validators.required]]
     })
-  }
 
-  ngAfterViewInit() {
-    this.user.isUser.subscribe(value => value)
   }
 
   onSignIn(form: IForm) {

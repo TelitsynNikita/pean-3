@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {TypeService} from "../../services/type.service";
 import {BrandService} from "../../services/brand.service";
+import {DeviceService} from "../../services/device.service";
 
 @Component({
   selector: 'app-device',
@@ -16,7 +17,8 @@ export class DeviceComponent {
   constructor(
     private formBuilder: FormBuilder,
     private typeService: TypeService,
-    private brandService: BrandService
+    private brandService: BrandService,
+    private deviceService: DeviceService
   ) {
     this.form = formBuilder.group({
       'name': ['', [Validators.required]],
@@ -31,6 +33,7 @@ export class DeviceComponent {
   }
 
   createDevice(form: any) {
-    console.log(form.value)
+    this.deviceService.createDevice(form.value)
+    this.form.reset()
   }
 }

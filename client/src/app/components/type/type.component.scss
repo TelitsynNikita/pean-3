@@ -1,0 +1,43 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+}
+
+form {
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  background-color: #333;
+  padding: 30px;
+  border-radius: 10px;
+
+  .title {
+    color: var(--logout-button-color);
+  }
+
+  .form-group {
+    width: 100%;
+    position: relative;
+
+    input {
+      width: 100%;
+      background-color: #555;
+    }
+
+    span {
+      position: absolute;
+      bottom: -20px;
+      left: 10px;
+    }
+  }
+
+  button {
+    background-color: var(--logout-button-color);
+    width: 10vw;
+    padding: 10px 20px;
+    margin: 0 auto;
+  }
+}

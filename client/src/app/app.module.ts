@@ -12,8 +12,6 @@ import { SecondaryTitleComponent } from './components/secondary-title/secondary-
 import {AuthService} from "./services/auth.service";
 import {UserService} from "./services/user.service";
 import {AuthGuard} from "./guards/auth.guard";
-import {TypeComponent} from "./components/type/type.component";
-import {BrandComponent} from "./components/brand/brand.component";
 import {TypeService} from "./services/type.service";
 import {BrandService} from "./services/brand.service";
 import {DeviceService} from "./services/device.service";
@@ -24,9 +22,7 @@ import {DeviceService} from "./services/device.service";
     HomeComponent,
     BasketComponent,
     SignInModalComponent,
-    SecondaryTitleComponent,
-    TypeComponent,
-    BrandComponent
+    SecondaryTitleComponent
   ],
   imports: [
     BrowserModule,

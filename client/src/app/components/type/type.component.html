@@ -1,1 +1,11 @@
-<p>type works!</p>
+<form [formGroup]="typeForm" (submit)="createType(typeForm)">
+  <app-secondary-title [title]="'Create type'" class="title"></app-secondary-title>
+
+  <div class="form-group">
+    <input type="text" formControlName="name" placeholder="name">
+    <span class="invalid" *ngIf="typeForm.controls['name'].invalid && typeForm.controls['name'].touched && !isType">Не валидно</span>
+    <span *ngIf="isType" class="invalid">{{isType}}</span>
+  </div>
+
+  <button>Create</button>
+</form>

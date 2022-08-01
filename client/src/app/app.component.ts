@@ -9,12 +9,12 @@ import {UserService} from "./services/user.service";
 export class AppComponent implements AfterViewInit, OnDestroy {
   isLoggedIn: boolean = false
   isModal: boolean = false
-  isAdmin: boolean = true
+  isAdmin: boolean = false
 
   constructor(private user: UserService) { }
 
   ngAfterViewInit() {
-   // this.user.isUser.subscribe((value: any) => value.role === 'ADMIN' ? this.isAdmin = true : this.isAdmin = false)
+   this.user.isUser.subscribe((value: any) => value.role === 'ADMIN' ? this.isAdmin = true : this.isAdmin = false)
   }
 
   onChangeModal(event: any) {

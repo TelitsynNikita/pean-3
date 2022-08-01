@@ -10,7 +10,7 @@ const routes: Routes = [
   {path: 'basket', component: BasketComponent},
   {path: 'about', loadChildren: () => import('./domains/about/about.module').then(md => md.AboutModule)},
   {path: 'catalog', loadChildren: () => import('./domains/catalog/catalog.module').then(md => md.CatalogModule)},
-  {path: 'admin', loadChildren: () => import('./domains/admin/admin.module').then(md => md.AdminModule)}
+  {path: 'admin', loadChildren: () => import('./domains/admin/admin.module').then(md => md.AdminModule), canActivate: [AuthGuard]}
 ];
 
 @NgModule({
